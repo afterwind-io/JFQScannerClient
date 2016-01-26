@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="JFQScannerClient.Views.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JFQScannerClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <Grid>
+        <TextBox x:Name="textBox" Height="46" Margin="279,191,281,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Template="{DynamicResource ModernInput}"/>
+
+    </Grid>
+</UserControl>

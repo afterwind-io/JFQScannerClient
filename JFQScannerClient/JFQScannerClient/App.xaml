@@ -4,6 +4,63 @@
              xmlns:local="clr-namespace:JFQScannerClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+
+            <!--Color Palette-->
+            <Color x:Key="GlobalBlue">#2da8ff</Color>
+            <Color x:Key="GlobalBlue900">#01579b</Color>
+            <Color x:Key="GlobalLightBlue">#7ec8fc</Color>
+            <Color x:Key="GlobalSmokeBlue">#d2e8f7</Color>
+            <Color x:Key="GlobalOrange">#ff874f</Color>
+            <Color x:Key="GlobalGray50">#eceff1</Color>
+            <Color x:Key="GlobalGray100">#cfd8dc</Color>
+            <Color x:Key="GlobalGray300">#90a4ae</Color>
+            <Color x:Key="GlobalGray500">#607d8b</Color>
+            <Color x:Key="GlobalGray700">#455a64</Color>
+            <Color x:Key="GlobalGray900">#263238</Color>
+            <Color x:Key="GlobalLightGray">#cccccc</Color>
+            <Color x:Key="GlobalBorderGray">#e5e5e5</Color>
+            <Color x:Key="GlobalSmokeGray">#f0f0f0</Color>
+            <SolidColorBrush x:Key="BrushGlobalBlue" Color="{StaticResource GlobalBlue}"/>
+            <SolidColorBrush x:Key="BrushGlobalBlue900" Color="{StaticResource GlobalBlue900}"/>
+            <SolidColorBrush x:Key="BrushGlobalLightBlue" Color="{StaticResource GlobalLightBlue}"/>
+            <SolidColorBrush x:Key="BrushGlobalSmokeBlue" Color="{StaticResource GlobalSmokeBlue}"/>
+            <SolidColorBrush x:Key="BrushGlobalOrange" Color="{StaticResource GlobalOrange}"/>
+            <SolidColorBrush x:Key="BrushGlobalGray50" Color="{StaticResource GlobalGray50}"/>
+            <SolidColorBrush x:Key="BrushGlobalGray100" Color="{StaticResource GlobalGray100}"/>
+            <SolidColorBrush x:Key="BrushGlobalGray300" Color="{StaticResource GlobalGray300}"/>
+            <SolidColorBrush x:Key="BrushGlobalGray500" Color="{StaticResource GlobalGray500}"/>
+            <SolidColorBrush x:Key="BrushGlobalGray700" Color="{StaticResource GlobalGray700}"/>
+            <SolidColorBrush x:Key="BrushGlobalGray900" Color="{StaticResource GlobalGray900}"/>
+            <SolidColorBrush x:Key="BrushGlobalLightGray" Color="{StaticResource GlobalLightGray}"/>
+            <SolidColorBrush x:Key="BrushGlobalBorderGray" Color="{StaticResource GlobalBorderGray}"/>
+            <SolidColorBrush x:Key="BrushGlobalSmokeGray" Color="{StaticResource GlobalSmokeGray}"/>
+
+            <!--Z-Index Shadow-->
+            <DropShadowBitmapEffect x:Key="GlobalShadow2dp" Direction="270" Opacity="0.3" ShadowDepth="3" Softness="0.2"/>
+            <DropShadowBitmapEffect x:Key="GlobalShadow4dp" Direction="270" Opacity="0.3" ShadowDepth="3"/>
+
+            <!--Fonts-->
+            <Style x:Key="BasicFont">
+                <!--<Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="White" BlurRadius="0" ShadowDepth="0.8" Opacity="0.3" RenderingBias="Quality"/>
+                    </Setter.Value>
+                </Setter>-->
+            </Style>
+            <Style x:Key="FontSymbol" TargetType="Label" BasedOn="{StaticResource BasicFont}">
+                <Setter Property="FontFamily" Value="/JFQScannerClient;component/Assets/Fonts/#Segoe MDL2 Assets"/>
+            </Style>
+            <Style x:Key="FontSourceHanSans" TargetType="Label"  BasedOn="{StaticResource BasicFont}">
+                <Setter Property="FontFamily" Value="/JFQScannerClient;component/Assets/Fonts/#Source Han Sans Regular"/>
+            </Style>
+            <Style x:Key="FontLanTing" TargetType="Label"  BasedOn="{StaticResource BasicFont}">
+                <Setter Property="FontFamily" Value="/JFQScannerClient;component/Assets/Fonts/#FZLanTingHei-R-GBK"/>
+            </Style>
+            <Style x:Key="FontHiragino" TargetType="Label"  BasedOn="{StaticResource BasicFont}">
+                <Setter Property="FontFamily" Value="/JFQScannerClient;component/Assets/Fonts/#Hiragino Sans GB W3"/>
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

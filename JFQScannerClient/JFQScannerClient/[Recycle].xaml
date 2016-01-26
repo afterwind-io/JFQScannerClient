@@ -1,0 +1,147 @@
+﻿<!--用于主窗口凭证生成批次操作的旧设计-->
+<Border Grid.Row="2" Margin="20,20" BorderThickness="1" BorderBrush="{StaticResource BrushGlobalBorderGray}" Grid.ColumnSpan="3">
+    <Grid>
+        <Grid Height="40" Background="{StaticResource BrushGlobalBlue}" VerticalAlignment="Top"  Grid.ColumnSpan="3">
+            <Label Foreground="White" FontSize="20" Padding="10,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource FontLanTing}" Content="最新批次"/>
+            <Label Foreground="White" FontSize="20" Padding="10,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Style="{StaticResource FontLanTing}" Content="张"/>
+        </Grid>
+        <Grid Margin="0,40,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="39*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="33*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Style="{StaticResource S_B_Undo}"/>
+            <Button Grid.Column="1" Style="{StaticResource S_B_Redo}"/>
+            <Button Grid.Column="2" Style="{StaticResource S_B_Cancel}"/>
+            <Label HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="0" Content="撤销"/>
+            <Label HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="1" Content="恢复"/>
+            <Label HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="2" Content="取消批次"/>
+        </Grid>
+    </Grid>
+</Border>
+<Style x:Key="S_B_Undo" TargetType="Button">
+    <Setter Property="Background">
+        <Setter.Value>
+            <ImageBrush ImageSource="Assets/Images/icon-left-u.png" Stretch="None"/>
+        </Setter.Value>
+    </Setter>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="Assets/Images/icon-left-on.png" Stretch="None" />
+                </Setter.Value>
+            </Setter>
+        </Trigger>
+    </Style.Triggers>
+</Style>
+<Style x:Key="S_B_Redo" TargetType="Button">
+    <Setter Property="Background">
+        <Setter.Value>
+            <ImageBrush ImageSource="Assets/Images/icon-right-u.png" Stretch="None"/>
+        </Setter.Value>
+    </Setter>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="Assets/Images/icon-right-on.png" Stretch="None" />
+                </Setter.Value>
+            </Setter>
+        </Trigger>
+    </Style.Triggers>
+</Style>
+<Style x:Key="S_B_Cancel" TargetType="Button">
+    <Setter Property="Background">
+        <Setter.Value>
+            <ImageBrush ImageSource="Assets/Images/icon-cancel-u.png" Stretch="None"/>
+        </Setter.Value>
+    </Setter>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="Assets/Images/icon-cancel-on.png" Stretch="None" />
+                </Setter.Value>
+            </Setter>
+        </Trigger>
+    </Style.Triggers>
+</Style>
+
+    
+    
+<!--主窗口旧设计-->
+<Grid>
+    <Grid x:Name="TitleBar" Height="60" VerticalAlignment="Top" Background="{StaticResource BrushGlobalBlue}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Logo" Width="100" Margin="30,0,0,0" HorizontalAlignment="Left" Source="Assets/Images/logo.png"/>
+        <Line X1="140" X2="140" Y1="20" Y2="40" Stroke="White" StrokeThickness="1"/>
+        <Label Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Content="财轻松（上海）财务咨询有限公司"/>
+        <Label Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="145,8,0,0" Content="票 据 扫 描"/>
+        <Label Foreground="White" FontSize="12" HorizontalAlignment="Left" Margin="145,28,0,0" Content="PJ.JFJUN.COM"/>
+        <Label Grid.Column="1" Foreground="White" FontSize="24" HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="10,0,0,0" Content="&#xE77B;" FontFamily="/JFQScannerClient;component/Assets/Fonts/#Segoe MDL2 Assets"/>
+        <Label Grid.Column="1" Foreground="White" FontSize="20" HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="45,0,0,0" Content="Doge"/>
+        <Image Source="Assets/Images/R-min-u.png" Stretch="None" Grid.Column="1" Margin="0,0,60,0" HorizontalAlignment="Right"/>
+        <Image Source="Assets/Images/R-close-u.png" Stretch="None" Grid.Column="1" Margin="0,0,20,0" HorizontalAlignment="Right"/>
+    </Grid>
+    <Grid x:Name="Main" Margin="0,60,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="EntryPanel" Grid.Column="0" Background="AntiqueWhite"/>
+        <Grid x:Name="FunctionPanel" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <Controls:MonthlyCalendar Grid.Row="1" Margin="20"/>
+
+            <Border Grid.Row="2" Margin="20,20" BorderThickness="1" BorderBrush="{StaticResource BrushGlobalBorderGray}" Grid.ColumnSpan="3">
+                <Grid>
+                    <Grid Height="40" Background="{StaticResource BrushGlobalBlue}" VerticalAlignment="Top"  Grid.ColumnSpan="3">
+                        <Label Foreground="White" FontSize="26" Padding="10,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource FontHiragino}" Content="批次操作"/>
+                        <Label Foreground="White" FontSize="26" Padding="10,0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Style="{StaticResource FontLanTing}" Content="张"/>
+                    </Grid>
+                    <Grid Margin="0,40,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33*"/>
+                            <ColumnDefinition Width="33*"/>
+                            <ColumnDefinition Width="33*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Controls:FlipButton Grid.Column="0" Style="{StaticResource S_FB_Undo}"/>
+                        <Controls:FlipButton Grid.Column="1" Style="{StaticResource S_FB_Redo}"/>
+                        <Controls:FlipButton Grid.Column="2" Style="{StaticResource S_FB_Cancel}"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Grid x:Name="BottomRect" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Controls:FlipButton Grid.Column="0" Style="{StaticResource S_FB_Scan}"/>
+                <Controls:FlipButton Grid.Column="1" Style="{StaticResource S_FB_Upload}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Grid>   

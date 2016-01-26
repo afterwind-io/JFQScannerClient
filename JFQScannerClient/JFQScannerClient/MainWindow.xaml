@@ -1,12 +1,54 @@
-﻿<Window x:Class="JFQScannerClient.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JFQScannerClient"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        xmlns:Controls="clr-namespace:JFQScannerClient.Controls" xmlns:Views="clr-namespace:JFQScannerClient.Views" x:Class="JFQScannerClient.MainWindow"
+        mc:Ignorable="d" d:DesignHeight="675" d:DesignWidth="1200"
+        Title="MainWindow" WindowState="Maximized" SnapsToDevicePixels="True" UseLayoutRounding="True">
+
+    <Window.Resources>
+        <!--Default Font-->
+        <!--<Style TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="pack://application:,,,/Assets/Fonts/#Source Han Sans Regular" />
+        </Style>-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MainWindowDic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource BrushGlobalGray700}">
+        <Grid x:Name="Main" Margin="20,60,20,0" Background="White">
+            <Grid>
+                <ScrollViewer x:Name="BatchContainer">
+                    <Views:BatchView VerticalAlignment="Top"/>
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Name="BottomRect" Grid.Row="3" Height="120" Width="220" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Controls:FlipButton Grid.Column="0" Style="{StaticResource S_FB_Scan}"/>
+                <Controls:FlipButton Grid.Column="1" Style="{StaticResource S_FB_Upload}"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="TitleBar" Height="60" VerticalAlignment="Top" Background="{StaticResource BrushGlobalBlue}"
+              BitmapEffect="{StaticResource GlobalShadow4dp}">
+
+            <Image x:Name="Logo" Width="100" Margin="20,0,0,0" HorizontalAlignment="Left" Source="Assets/Images/logo.png"/>
+            <Line X1="130" X2="130" Y1="20" Y2="40" Stroke="White" StrokeThickness="1" SnapsToDevicePixels="True"/>
+            <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Center" Text="财轻松（上海）财务咨询有限公司"/>
+            <TextBlock Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="142,13,0,0" Text="票 据 扫 描"/>
+            <TextBlock Foreground="White" FontSize="12" HorizontalAlignment="Left" Margin="140,33,0,0" Text="PJ.JFJUN.COM"/>
+            <TextBlock Foreground="White" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,155,0" Text="&#xE77B;" FontFamily="/JFQScannerClient;component/Assets/Fonts/#Segoe MDL2 Assets"/>
+            <TextBlock Foreground="White" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,95,0" Text="Doge"/>
+            <Polygon Points="0,0 20,20 20,0" Fill="{StaticResource BrushGlobalBlue900}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+            <Polygon Points="0,0 0,20 20,0" Fill="{StaticResource BrushGlobalBlue900}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+        </Grid>
     </Grid>
 </Window>

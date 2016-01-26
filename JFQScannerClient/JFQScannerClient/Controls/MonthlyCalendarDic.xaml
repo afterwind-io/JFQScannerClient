@@ -1,0 +1,168 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:JFQScannerClient.Controls">
+
+    <Style x:Key="{x:Type RadioButton}" TargetType="RadioButton">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="b" 
+                            Background="{StaticResource BrushGlobalGray50}"
+                            BorderBrush="{StaticResource BrushGlobalGray100}" 
+                            BorderThickness="1">
+                        <Label Name="l"
+                               Content="{TemplateBinding Content}"
+                               Background="Transparent"
+                               Foreground="{StaticResource BrushGlobalGray300}"
+                               FontSize="22"
+                               Padding="0"
+                               HorizontalAlignment="Stretch" 
+                               VerticalAlignment="Stretch"
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="l" Property="Background" Value="{StaticResource BrushGlobalSmokeBlue}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="l" Property="Background" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="#FFADADAD"/>
+                        </Trigger>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="b"
+                                                    Storyboard.TargetProperty="Background.Color"
+                                                    To="White"
+                                                    Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="b"
+                                                    Storyboard.TargetProperty="Background.Color"
+                                                    To="{StaticResource GlobalGray50}"
+                                                    Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource BrushGlobalSmokeBlue}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushGlobalGray500}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Grid x:Name="Part_Frame">
+                        <Border BorderBrush="{StaticResource BrushGlobalGray100}" 
+                                BorderThickness="1" 
+                                Background="{TemplateBinding Background}" 
+                                Padding="{TemplateBinding Padding}" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <ContentPresenter x:Name="Part_ContentSite"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <Popup x:Name="Part_Popup"
+                               PlacementTarget="{Binding ElementName=Part_Frame}"
+                               Width="{TemplateBinding ActualWidth}"
+                               Height="{TemplateBinding MaxDropDownHeight}"
+                               AllowsTransparency="True">
+                            <ScrollViewer>
+                                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </ScrollViewer>
+                        </Popup>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="Part_Frame" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Part_Popup" Property="IsOpen" Value="True"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BrushGlobalGray100}"/>
+        <Setter Property="BorderThickness" Value="0,1,0,0"/>
+        <Setter Property="Background" Value="{StaticResource BrushGlobalGray50}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushGlobalGray500}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                    <Border x:Name="b"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            Height="{TemplateBinding Height}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+
+                        <Label x:Name="l"
+                               Content="{TemplateBinding Content}"
+                               Foreground="{TemplateBinding Foreground}"
+                               Padding="{TemplateBinding Padding}"
+                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <EventTrigger SourceName="b" RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="b"
+                                                    Storyboard.TargetProperty="Background.Color"
+                                                    To="{StaticResource GlobalBlue}"
+                                                    Duration="0:0:0.1"/>
+                                    <ColorAnimation Storyboard.TargetName="l"
+                                                    Storyboard.TargetProperty="Foreground.Color"
+                                                    To="White"
+                                                    Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="b"
+                                                    Storyboard.TargetProperty="Background.Color"
+                                                    To="{StaticResource GlobalGray50}"
+                                                    Duration="0:0:0.1"/>
+                                    <ColorAnimation Storyboard.TargetName="l"
+                                                    Storyboard.TargetProperty="Foreground.Color"
+                                                    To="{StaticResource GlobalGray500}"
+                                                    Duration="0:0:0.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
